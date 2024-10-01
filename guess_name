@@ -1,0 +1,36 @@
+import random
+name_list = ["malihe","mehrsa","mohammad","mostafa"]
+guess_name = random.choice(name_list)
+char_count = len(guess_name)
+main_list = []
+for i in range(char_count):
+    main_list.append("-")
+print(main_list)
+while char_count != 0:
+        guess_char = input("Enter your char: ")
+        if guess_char.isalpha():
+            if guess_char in guess_name:
+                if guess_char in main_list:
+                     print("you have guessed before, try new charactor")
+                else:
+                    index = 0
+                    while index < len(guess_name):
+                        index = guess_name.find(guess_char, index)
+                        if index == -1:
+                            break
+                        main_list[index] = guess_char
+                        index += 1  
+                    print(main_list)
+                    char_count -= 1 
+                    if not "-" in main_list:
+                         print("you won!")
+                         break
+            else:       
+                char_count -= 1 
+                print(f"ERROR => remained guesses {char_count}")       
+        else:
+            print("Please enter a character")
+            
+        
+
+
