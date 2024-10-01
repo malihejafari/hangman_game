@@ -1,3 +1,4 @@
+#hangman_game
 import random
 name_list = ["malihe","mehrsa","mohammad","mostafa"]
 guess_name = random.choice(name_list)
